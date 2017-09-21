@@ -4,10 +4,19 @@ import React from 'react';
 
 // ReactDOM is used to render them on the page
 import ReactDOM from 'react-dom';
+import SearchBar from './components/search_bar';
+
+const API_KEY = 'AIzaSyANT8W-S5EqhGRi9rmvtIBI5gxcoZd_w8M';
+
+
 
 // STEP 1: Create new component that produces HTML
 const App = function (){
-  return <div>Hi!</div>;
+  return (
+    <div>
+      <SearchBar />
+    </div>
+  );
 };
 // or can be rewritten as 1 line arrow function
 // const App = () => (<div>Hi!</div>);
