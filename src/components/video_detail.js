@@ -1,9 +1,14 @@
 import React from 'react';
 
+// es6 trick to pull out just video from props
 const VideoDetail = ({video}) => {
+
+  // check if there is a video yet, if not showing "loading"
   if (!video) {
     return <div>Loading...</div>;
   }
+
+  //set the video id and creat the url
   const videoId = video.id.videoId;
   const url = `https://www.youtube.com/embed/${videoId}`;
 
