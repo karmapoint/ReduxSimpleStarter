@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import SearchBar from './components/search_bar';
@@ -31,9 +32,13 @@ class App extends Component {
   }
 
   render() {
+    // debounce takes a callback and a time and limits the amount of times the
+    // function can be called - this keeps it from refreshing while you type
+    const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
+
     return (
       <div>
-        <SearchBar onSearchTermChange={term => this.videoSearch(term)} />
+        <SearchBar onSearchTermChange={videoSearch} />
         <VideoDetail video ={this.state.selectedVideo} />
         <VideoList
           onVideoSelect={selectedVideo => this.setState({selectedVideo})}
